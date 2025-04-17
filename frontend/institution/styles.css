@@ -1,0 +1,84 @@
+/* frontend/institution/styles.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('../assets/university.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: brightness(0.7);
+}
+
+.bg-overlay {
+  background: rgba(0, 0, 0, 0.6); /* dark overlay for contrast */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  background: rgba(255, 248, 230, 0.95); /* parchment look */
+  padding: 2rem 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Georgia', serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #4B2E83; /* deep university tone */
+  margin-bottom: 0.3rem;
+}
+
+header nav a {
+  color: #8B0000;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #333;
+  border-bottom: 2px solid #4B2E83;
+  padding-bottom: 5px;
+  margin-top: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #4B2E83;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #351c61;
+}
