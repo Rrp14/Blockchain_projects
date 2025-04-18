@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Login - CertiChain</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
+<<<<<<< HEAD
     <h1>User Login</h1>
     <input id="logEmail" type="email" placeholder="Email" />
     <input id="logPass" type="password" placeholder="Password" />
@@ -17,3 +19,51 @@
   <script type="module" src="app.js"></script>
 </body>
 </html>
+=======
+    <div class="login-card">
+      <div class="header">
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Log in to your CertiChain account</p>
+      </div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label for="logEmail">Email Address</label>
+          <div class="input-container">
+            <input id="logEmail" type="email" placeholder="your@email.com" required />
+            <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="password-header">
+            <label for="logPass">Password</label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+          <div class="input-container">
+            <input id="logPass" type="password" placeholder="••••••••" required />
+            <svg class="password-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="remember-me">
+          <input id="remember-me" type="checkbox">
+          <label for="remember-me">Remember me for 30 days</label>
+        </div>
+        
+        <button type="submit" class="login-button">Sign in to account</button>
+      </form>
+      
+      <div class="register-link">
+        <p>New to CertiChain? <a href="register.html">Create an account</a></p>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+>>>>>>> e88c0331cae6f0b11731b0eb40115652bd0f5632
