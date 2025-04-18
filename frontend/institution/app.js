@@ -1,5 +1,3 @@
-// frontend/institution/app.js
-
 async function login() {
   const res = await fetch("http://localhost:3000/login", {
     method: "POST",
@@ -23,21 +21,28 @@ async function issue() {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      id: document.getElementById("certId").value,
       name: document.getElementById("name").value,
       course: document.getElementById("course").value,
       date: document.getElementById("date").value,
       issuer: document.getElementById("issuer").value,
+      userEmail: document.getElementById("email").value,
     }),
   });
 
   const result = await res.json();
+
   if (res.ok && result.success) {
-    alert("Certificate Issued!");
+    alert(`Certificate Issued!\nID: ${result.certificateId}`);
+    // Optionally show it on page
+    const display = document.getElementById("generatedId");
+    if (display) {
+      display.innerText = `Generated Certificate ID: ${result.certificateId}`;
+    }
   } else {
     alert("Issue failed: " + (result.error || "Unknown error"));
   }
 }
+
 
 async function updateCredentials() {
   const newUsername = document.getElementById("newUser").value;

@@ -33,21 +33,27 @@ async function loginUser() {
 async function validate() {
   const id = document.getElementById("searchId").value;
   const res = await fetch(`http://localhost:3000/validate/${id}`);
-  const data = await res.json();
+   const result = await res.json();
 
-  if (!res.ok) {
-    alert(data.error || "Certificate not found");
+  if (!res.ok|| !result.success) {
+    alert(result.error || "Certificate not found");
     document.getElementById("certificate").style.display = "none";
     return;
   }
 
   // Populate certificate data
   
-  document.getElementById("certName").textContent = data[1];
-  document.getElementById("certCourse").textContent = data[2];
-  document.getElementById("certDate").textContent = data[3];
-  document.getElementById("certId").textContent = data[0];
+ // document.getElementById("certName").textContent = data[1];
+  // document.getElementById("certCourse").textContent = data[2];
+  // document.getElementById("certDate").textContent = data[3];
+  // document.getElementById("certId").textContent = data[0];
 
+  const cert = result.certificate;
+
+  document.getElementById("certName").textContent = cert.name;
+  document.getElementById("certCourse").textContent = cert.course;
+  document.getElementById("certDate").textContent = cert.date;
+  document.getElementById("certId").textContent = cert.id;
 
   // Show the certificate box
   document.getElementById("certificate").style.display = "block";

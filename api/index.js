@@ -42,12 +42,10 @@ app.post("/login", async (req, res) => {
   const saved = getSavedCredentials();
 
   if (saved) {
-    // Use saved credentials (hashed password)
     const isMatch = username === saved.username && (await bcrypt.compare(password, saved.password));
     return isMatch ? res.json({ success: true }) : res.status(401).json({ success: false });
   }
 
-  // First-time fallback to .env
   if (
     username === process.env.INSTITUTION_USERNAME &&
     password === process.env.INSTITUTION_PASSWORD
@@ -74,26 +72,67 @@ app.post("/change-institution-password", async (req, res) => {
 });
 
 // Issue certificate
+const sendCertificateEmail = require("./utils/sendEmail");
+
 app.post("/issue", async (req, res) => {
   try {
-    const { id, name, course, date, issuer } = req.body;
+    const { name, course, date, issuer, userEmail } = req.body;
+
+    const id = generateCertificateId(name, date);
     const tx = await contract.issueCertificate(id, name, course, date, issuer);
     await tx.wait();
-    res.json({ success: true, txHash: tx.hash });
+
+    const certData = { id, name, course, date, issuer };
+
+    // Send email
+    if (userEmail) {
+      await sendCertificateEmail(userEmail, "Your Issued Certificate", certData);
+    }
+
+    res.json({ success: true, txHash: tx.hash, certificateId: id });
   } catch (error) {
     console.error("❌ Error issuing certificate:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
 
+// app.post("/issue", async (req, res) => {
+//   try {
+//     const {  name, course, date, issuer } = req.body;
+//     const id = generateCertificateId(name, date); // Original implementation
+//     const tx = await contract.issueCertificate(id, name, course, date, issuer);
+//     await tx.wait();
+//     res.json({ success: true, txHash: tx.hash, certificateId: id });
+//   } catch (error) {
+//     console.error("❌ Error issuing certificate:", error);
+//     res.status(500).json({ success: false, error: error.message });
+//   }
+// });
+
 // Validate certificate
 app.get("/validate/:id", async (req, res) => {
   try {
-    const cert = await contract.getCertificate(req.params.id);
-    res.json(cert);
+    const certArray = await contract.getCertificate(req.params.id);
+    const certificate = {
+      id: certArray[0],
+      name: certArray[1],
+      course: certArray[2],
+      date: certArray[3],
+      issuer: certArray[4],
+    };
+    res.json({success:true,certificate});
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
 });
 
+function generateCertificateId(name, date) {
+  const timestamp = new Date(date).getTime();
+  const randomPart = Math.floor(1000 + Math.random() * 9000); // 4-digit
+  const namePart = name.toLowerCase().replace(/\s+/g, '').substring(0, 4); // 1st 4 chars
+  return `${namePart}-${timestamp.toString(36)}-${randomPart}`;
+}
+
+
 app.listen(3000, () => console.log("✅ API running on http://localhost:3000"));
+

@@ -1,4 +1,3 @@
-<!-- frontend/institution/issue.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +19,13 @@
       </header>
       <section id="issue-section">
         <h2>Issue Certificate</h2>
-        <input id="certId" placeholder="Certificate ID" />
+        <p id="generatedId" style="margin-top:10px; font-weight:bold;"></p>
         <input id="name" placeholder="Name" />
         <input id="course" placeholder="Course" />
         <input id="date" placeholder="Date" type="date" />
         <input id="issuer" placeholder="Issuer" />
+        <input type="email" id="email" placeholder="Recipient Email" />
+
         <button onclick="issue()">Issue Certificate</button>
       </section>
     </div>
