@@ -5,34 +5,8 @@ A decentralized certificate verification system built on a private blockchain (H
 
 ---
 
-## 📁 Project Structure
-
 ```
-certificate-validator/
-│
-├── backend/
-│   ├── contract/                # Smart contract (Solidity)
-│   │   ├── Certificate.sol
-│   │   └── ...
-│   ├── scripts/
-│   │   └── deploy.js           # Deployment script
-│   ├── .env                    # Contract address, Institution login
-│   ├── package.json
-│   ├── hardhat.config.js
-│   └── server.js               # Express + Ethers.js API server
-│
-├── frontend/
-│   ├── index.html              # Landing page (Institution/User)
-│   ├── issue.html              # Issue Certificate (Institution)
-│   ├── update.html             # Update Credentials (Institution)
-│   ├── validate.html           # Validate Certificate (User)
-│   ├── style.css               # Common CSS
-│   └── script.js               # Frontend logic
-│
-├── credentials.json            # Stores hashed institution credentials
-├── Dockerfile
-├── docker-compose.yml
-└── README.md
+
 ```
 
 ---
@@ -64,7 +38,7 @@ npm install
 1. Go to [Firebase Console](https://console.firebase.google.com/).
 2. Enable **Email/Password Authentication**.
 3. Create a **Web App** and get your Firebase config.
-4. Add Firebase config to `frontend/script.js`:
+4. Add Firebase config to `frontend/firebase.js`:
 
 ```js
 const firebaseConfig = {
