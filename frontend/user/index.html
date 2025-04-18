@@ -29,7 +29,7 @@
         <div class="form-group">
           <div class="password-header">
             <label for="logPass">Password</label>
-            <a href="#" class="forgot-password">Forgot password?</a>
+            <a href="#" onclick="forgotPassword()" class="forgot-password">Forgot password?</a>
           </div>
           <div class="input-container">
             <input id="logPass" type="password" placeholder="••••••••" required />
@@ -44,7 +44,7 @@
           <label for="remember-me">Remember me for 30 days</label>
         </div>
         
-        <button type="submit" class="login-button">Sign in to account</button>
+        <button onclick="loginUser()" type="button" class="login-button">Sign in to account</button>
       </form>
       
       <div class="register-link">

@@ -1,5 +1,5 @@
 // frontend/user/app.js
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "../firebase.js";
+import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword,sendPasswordResetEmail } from "../firebase.js";
 
 // Register user
 async function registerUser() {
@@ -28,6 +28,24 @@ async function loginUser() {
     alert("Login failed: " + err.message);
   }
 }
+
+async function forgotPassword() {
+  const email = prompt("Please enter your email to reset your password:");
+
+  if (!email) {
+    alert("Email is required to reset password.");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("Password reset email sent! Please check your inbox.");
+  } catch (err) {
+    alert("Error sending reset email: " + err.message);
+  }
+}
+
+window.forgotPassword = forgotPassword;
 
 // Validate certificate by ID
 async function validate() {
@@ -124,3 +142,5 @@ window.registerUser = registerUser;
 window.loginUser = loginUser;
 window.validate = validate;
 window.printCertificate = printCertificate;
+window.forgotPassword = forgotPassword;
+

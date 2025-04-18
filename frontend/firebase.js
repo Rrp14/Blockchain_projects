@@ -1,6 +1,6 @@
 // frontend/firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB2YEvf14X2b5oZztcCy0pChpdInbeugpE",
@@ -15,4 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword };
+export { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword,sendPasswordResetEmail };
