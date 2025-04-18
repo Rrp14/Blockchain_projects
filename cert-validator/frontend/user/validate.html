@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Validate Certificate - CertiChain</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="validate-container">
+    <h1>Validate Certificate</h1>
+    <input id="searchId" placeholder="Enter Certificate ID" />
+    <button onclick="validate()">Validate</button>
+    
+    <div id="certificate" class="certificate-box" style="display:none;">
+      <h2>Certificate of Achievement</h2>
+      <p><strong>Name:</strong> <span id="certName"></span></p>
+      <p><strong>Course:</strong> <span id="certCourse"></span></p>
+      <p><strong>Date:</strong> <span id="certDate"></span></p>
+      <p><strong>Certificate ID:</strong> <span id="certId"></span></p>
+    </div>
+    <button id="printBtn" style="display: none;" onclick="printCertificate()">Print Certificate</button>
+
+  </div>
+  </div>
+  <script src="qrcode.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

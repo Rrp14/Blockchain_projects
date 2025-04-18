@@ -1,0 +1,254 @@
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: rgba(79, 70, 229, 0.1);
+  --text-dark: #111827;
+  --text-medium: #4b5563;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --border-focus: #a5b4fc;
+  --error: #ef4444;
+  --success: #10b981;
+  --background: #f9fafb;
+  --card-bg: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transition: all 0.2s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background: 
+    linear-gradient(to right, rgba(17, 24, 39, 0.9), rgba(255, 255, 255, 0.5)), /* Dark-to-light gradient */
+    linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 100%), /* Shiny effect */
+    url('https://2af91d24.delivery.rocketcdn.me/wp-content/uploads/2020/07/OC-for-career-MIDDLE-IMAGE-1-800x530px-08-1536x1018.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* Adapting the bg-overlay to match container in reference */
+.bg-overlay {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling container as login-card in reference */
+.container {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.03) 0%, rgba(79, 70, 229, 0) 70%);
+  z-index: 0;
+}
+
+/* Header styling similar to reference */
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+header::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-hover) 100%);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-medium);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Form elements similar to reference */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Input styling like in reference */
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  background-color: white;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+input:hover {
+  border-color: #cbd5e1;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+/* Button styling exactly like login-button in reference */
+button {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(79, 70, 229, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(79, 70, 229, 0.2);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-light), 0 4px 6px rgba(79, 70, 229, 0.25);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Success and Error Messages */
+.success-message {
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--success);
+  color: var(--success);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Responsive adjustments from reference */
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  header::after {
+    width: 50px;
+    height: 3px;
+  }
+}
+
+/* Specific adjustment for issue certificate page */
+#issue-section .container {
+  max-width: 480px;
+}
