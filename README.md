@@ -9,6 +9,11 @@ A decentralized certificate verification system built on a private blockchain (H
 
 ```
 certificate-validator/
+|___api/
+|   |__index.js
+|___|___ether.js
+|___utils/
+|___|_sendemail.js
 │
 ├── backend/
 │   ├── contract/                # Smart contract (Solidity)
@@ -16,18 +21,17 @@ certificate-validator/
 │   │   └── ...
 │   ├── scripts/
 │   │   └── deploy.js           # Deployment script
-│   ├── .env                    # Contract address, Institution login
+│   ├                    # Contract address, Institution login
 │   ├── package.json
 │   ├── hardhat.config.js
-│   └── server.js               # Express + Ethers.js API server
+│   └               # Express + Ethers.js API server
 │
 ├── frontend/
-│   ├── index.html              # Landing page (Institution/User)
-│   ├── issue.html              # Issue Certificate (Institution)
-│   ├── update.html             # Update Credentials (Institution)
-│   ├── validate.html           # Validate Certificate (User)
-│   ├── style.css               # Common CSS
-│   └── script.js               # Frontend logic
+│___|
+|   |__instituion/
+|   |  |__index.html,update.htnml,issue.html,app.js,styles.css
+|   |_user/
+|     |__register.html,index.html,validate.html,app.js,styles.css
 │
 ├── credentials.json            # Stores hashed institution credentials
 ├── Dockerfile
