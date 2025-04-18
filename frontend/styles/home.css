@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-image: url('../assets/clg.jpg');
   background-size: cover;
   background-position: center;
@@ -18,12 +18,27 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 20, 40, 0.8));
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
 }
 
 .role-logos {
   display: flex;
-  gap: 60px;
+  gap: 80px;
   margin-top: 30px;
   flex-wrap: wrap;
   justify-content: center;
@@ -33,33 +48,81 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.role img {
-  width: 120px;
-  height: auto;
-  margin-bottom: 12px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease;
 }
 
+.role:hover {
+  transform: translateY(-10px);
+}
+
+.role img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 8px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
 .role img:hover {
-  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 12px rgba(100, 180, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn {
   margin: 10px;
-  padding: 12px 24px;
+  padding: 14px 30px;
   font-size: 1rem;
   text-decoration: none;
-  background-color: #ffffffcc;
-  border-radius: 8px;
-  color: #333;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  background: linear-gradient(135deg, #0056b3, #007bff);
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  letter-spacing: 0.5px;
+  border: none;
+  min-width: 140px;
 }
 
 .btn:hover {
-  background-color: #ddd;
+  background: linear-gradient(135deg, #003d82, #0069d9);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .role-logos {
+    gap: 40px;
+  }
+  
+  .role img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  .role img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+  }
 }
